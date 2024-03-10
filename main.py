@@ -65,7 +65,10 @@ from flask_cors import CORS  # Import CORS
 
 temp = pathlib.PosixPath
 pathlib.PosixPath = pathlib.WindowsPath
-
+# Added new
+plt = platform.system()
+if plt == 'Linux': pathlib.WindowsPath = pathlib.PosixPath
+###
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
