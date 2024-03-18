@@ -100,6 +100,8 @@ def predict():
             return jsonify({'error': 'No image path'})
 
         image_path = request.json["image_path"]
+
+        
         img = Image.open(image_path)
         results = model([img])
 
@@ -118,7 +120,7 @@ def predict():
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Flask app exposing yolov5 models")
-    parser.add_argument("--port", default=5000, type=int, help="port number")
+    parser.add_argument("--port", default=8000, type=int, help="port number")
     args = parser.parse_args()
 
     app.run(host="0.0.0.0", port=args.port)  # debug=True causes Restarting with stat
